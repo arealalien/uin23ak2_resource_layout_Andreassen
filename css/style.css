@@ -1,11 +1,12 @@
 :root {
-    --primary: 11, 100%, 53%;
+    --primary: 187, 100%, 50%;
     --background: 264, 24%, 96%;
     --background-dark: 0, 3%, 10%;
     --text-primary: 0, 0%, 0%;
     /* Colors */
     --black: 0, 0%, 0%;
     --white: 0, 0%, 100%;
+    --quite-light-gray:  0, 0%, 88%;
     --quite-gray:  0, 0%, 40%;
     /* Sizes */
     --heading-large: 5.6rem;
@@ -32,6 +33,12 @@ html, body {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     box-sizing: border-box;
+}
+a {
+    color: hsl(var(--primary));
+}
+a:visited {
+    color: hsla(var(--primary), .8);
 }
 .view-width {
     width: calc(100% - 6em);
@@ -121,7 +128,37 @@ html, body {
     text-transform: uppercase;
 }
 #navbar {
-
+    width: 100%;
+    gap: 1em;
+}
+.navbar-button {
+    padding: 1em 1.4em;
+    color: hsl(var(--quite-gray));
+    font-size: var(--paragraph);
+    background-color: hsl(var(--quite-light-gray));
+    border: 1px solid hsl(var(--quite-gray));
+    border-bottom: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.navbar-button-active {
+    color: hsl(var(--white)) !important;
+    background-color: hsl(var(--primary)) !important;
+    border: 1px solid hsl(var(--primary)) !important;
+    border-bottom: none !important;
+    cursor: default !important;
+}
+#ressurs-output {
+    padding: 1em 2em;
+    width: 100%;
+    border: 1px solid hsl(var(--quite-gray));
+    border-top: 10px solid hsl(var(--primary));
+}
+.output-section-active {
+    display: block !important;
+}
+.output-section {
+    display: none;
 }
 /* Selection */
 ::selection {
