@@ -7,7 +7,7 @@
     --black: 0, 0%, 0%;
     --white: 0, 0%, 100%;
     --quite-light-gray:  0, 0%, 88%;
-    --quite-gray:  0, 0%, 40%;
+    --quite-gray:  0, 0%, 45%;
     /* Sizes */
     --heading-large: 5.6rem;
     --heading-medium: 3.6rem;
@@ -159,6 +159,10 @@ a:visited {
 }
 .output-section {
     display: none;
+}
+.output-title {
+    margin: .4em 0 0 0;
+    font-size: calc(var(--paragraph) + .5rem);
 }
 /* Selection */
 ::selection {
