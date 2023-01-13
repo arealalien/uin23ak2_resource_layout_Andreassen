@@ -155,3 +155,30 @@ function createElements(item) {
 }
 
 resources.map(createElements);
+
+const navButtons = document.querySelectorAll(".navbar-button");
+
+navButtons.forEach(function(item) {
+    item.addEventListener("click", function() {
+        if (item.classList.contains("navbar-button-active")) {
+
+        } else {
+            let buttonName = this.innerHTML.replace(/\s+/g, '-').toLowerCase();
+
+            let activeButtons = document.querySelectorAll(".navbar-button-active");
+
+            activeButtons.forEach(function(item) {
+                item.classList.remove("navbar-button-active");
+            });
+
+            let activeSection = document.querySelectorAll(".output-section-active");
+
+            activeSection.forEach(function(item) {
+                item.classList.remove("output-section-active");
+            });
+
+            item.classList.add("navbar-button-active");
+            document.getElementsByClassName(buttonName)[0].classList.add("output-section-active");
+        }
+    });
+});
