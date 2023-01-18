@@ -95,7 +95,7 @@ const resources = [
     },
 ]
 
-let CatEl, CatEl2, TextEl, SourceSectionEl, SourceListEl, SourceTitleEl1, SourceTitleEl1Link, SourceTitleEl2, SourceTitleEl2Link, SourceTitleEl3, SourceTitleEl3Link;
+let CatEl, SourceSectionEl;
 
 function createElements(item) {
     CatEl = document.createElement('button');
@@ -104,14 +104,6 @@ function createElements(item) {
     } else {
         CatEl.className = "navbar-button";
     }
-    CatEl.innerHTML = item.category;
-    CatEl2 = document.createElement('h3');
-    CatEl2.className = "output-title";
-    CatEl2.innerHTML = item.category;
-    TextEl = document.createElement('p');
-    TextEl.className = "output-text";
-    TextEl.innerHTML = item.text;
-
     SourceSectionEl = document.createElement("section");
     if (item.category === "HTML") {
         SourceSectionEl.className = "output-section-active output-section " + item.category.replace(/\s+/g, '-').toLowerCase();
@@ -119,39 +111,18 @@ function createElements(item) {
         SourceSectionEl.className = "output-section " + item.category.replace(/\s+/g, '-').toLowerCase();
     }
 
-    SourceListEl = document.createElement('ul');
+    CatEl.innerHTML = `${item.category}`;
 
-    SourceTitleEl1 = document.createElement('li');
-    SourceTitleEl1Link = document.createElement('a');
-    SourceTitleEl1Link.className = "output-link";
-    SourceTitleEl1Link.innerHTML = item.sources[0].title;
-    SourceTitleEl1Link.setAttribute('href', item.sources[0].url);
-
-    SourceTitleEl2 = document.createElement('li');
-    SourceTitleEl2Link = document.createElement('a');
-    SourceTitleEl2Link.className = "output-link";
-    SourceTitleEl2Link.innerHTML = item.sources[1].title;
-    SourceTitleEl2Link.setAttribute('href', item.sources[1].url);
-
-    SourceTitleEl3 = document.createElement('li');
-    SourceTitleEl3Link = document.createElement('a');
-    SourceTitleEl3Link.className = "output-link";
-    SourceTitleEl3Link.innerHTML = item.sources[2].title;
-    SourceTitleEl3Link.setAttribute('href', item.sources[2].url);
+    SourceSectionEl.innerHTML = `<h3 class="output-title">${item.category}</h3>
+                                 <p class="output-text">${item.text}</p>
+                                 <ul>
+                                     <li><a class="output-link" href="${item.sources[0].url}">${item.sources[0].title}</a></li>
+                                     <li><a class="output-link" href="${item.sources[1].url}">${item.sources[1].title}</a></li>
+                                     <li><a class="output-link" href="${item.sources[2].url}">${item.sources[2].title}</a></li>
+                                 </ul>`;
 
     document.getElementById("navbar").appendChild(CatEl);
-    document.getElementById("ressurs-output").appendChild(SourceSectionEl)
-    SourceSectionEl.appendChild(CatEl2);
-    SourceSectionEl.appendChild(TextEl);
-
-    SourceSectionEl.appendChild(SourceListEl);
-
-    SourceListEl.appendChild(SourceTitleEl1);
-    SourceTitleEl1.appendChild(SourceTitleEl1Link);
-    SourceListEl.appendChild(SourceTitleEl2);
-    SourceTitleEl2.appendChild(SourceTitleEl2Link);
-    SourceListEl.appendChild(SourceTitleEl3);
-    SourceTitleEl3.appendChild(SourceTitleEl3Link);
+    document.getElementById("ressurs-output").appendChild(SourceSectionEl);
 }
 
 resources.map(createElements);
