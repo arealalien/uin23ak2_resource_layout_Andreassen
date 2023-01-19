@@ -106,8 +106,10 @@ function createElements(item) {
     }
     SourceSectionEl = document.createElement("section");
     if (item.category === "HTML") {
+        // Hentet " /\s/g " i .replace() fra: https://stackoverflow.com/questions/1983648/replace-spaces-with-dashes-and-make-all-letters-lower-case
         SourceSectionEl.className = "output-section-active output-section " + item.category.replace(/\s+/g, '-').toLowerCase();
     } else {
+        // Hentet " /\s/g " i .replace() fra: https://stackoverflow.com/questions/1983648/replace-spaces-with-dashes-and-make-all-letters-lower-case
         SourceSectionEl.className = "output-section " + item.category.replace(/\s+/g, '-').toLowerCase();
     }
 
